@@ -11,8 +11,11 @@ async function init() {
         row.appendChild(name);
         const premium=document.createElement('td');
         premium.innerText=patron.premium? '✅':'❌';
-        premium.addEventListener('click',()=>{
+        premium.addEventListener('click',(patron)=>{
             const alert=document.getElementById('alert');
+            patron.premium=!patron.premium;
+            console.log(patron.name);
+            premium.innerText=patron.premium? '✅':'❌';
             alert.hidden=false;
             setTimeout(() => {
                 alert.hidden=true;
@@ -27,4 +30,4 @@ async function init() {
     });
 
 }
-init()
+init();
